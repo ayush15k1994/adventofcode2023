@@ -1,0 +1,74 @@
+Day 5:
+    - Partition the ranges by maps src ranges
+    - Apply the map on partitioned ranges
+
+Day 6:
+    time: t, distance: d, record distance: r
+    hold for n seconds to charge: travel at speed n for (t-n) time
+
+    (t-n) * n > r
+    tn - n^2 > r
+    n^2-tn+r < 0
+
+    n = (t (+/-) sqrt(t^2 - 4*r)) / 2
+
+    if: (t^2 - 4r < 0) No solution
+    else: (t - sqrt(t^2 - 4r))/2 < n < (t + sqrt(t^2 - 4r))/2
+
+
+    Time: 30, Distance: 200
+    winning range: 10 to 20
+
+Day 7:
+    List of hands, order them based on the strength of each hand
+    A hand has 5 cards: K, Q, J, T, A, 9-2 (in order of decreasing strength) 
+
+    Every hand is exactly one of these types:
+    - Five of a kind: AAAAA
+    - Four of a kind: AA8AA
+    - Full house: AABBB
+    - Three of a kind: AAABC
+    - Two pair: AABBC
+    - One pair: AABCD
+    - High Card: ABCDE
+    (listed in the order of decreasing strength)
+
+    For two hands of same type, hand with higher value card in ith position, with previous (i-1) cards of same value is better
+
+    Input: hand bid
+        win = bid * rank of hand (amongst the listed hands)
+        calculate sum of all winning amounts
+
+    Card    Score
+    2-9     2-9
+    T       10
+    J       11
+    Q       12
+    K       13
+    A       14
+
+
+Day 10: Pipe Maze
+------------------
+
+Pipes: 
+
+    (  
+        N       N = (-1, 0)
+       W E      W = (0, -1), E = (0, 1)
+        S       S = (1, 0)
+    )
+
+    | = vertical Pipe connecting North and South, 
+    - = horizontal pipe connecting east and west
+    L - 90-degree bend connecting north and east
+    J - 90-degree bend connecting north and west
+    7 - 90-degree bend connecting south and west
+    F - 90-degree bend connecting south and east
+    . - ground, no pipe
+    S - starting position
+
+    pipes may not be connected to the loop
+    every pipe in the main loop connects to its two neighbours
+
+    Find the tile in the loop which is the farthest away from the starting point in the loop
