@@ -1,3 +1,4 @@
+// 12th day short solution
 #include <string>
 #include <iostream>
 #include <map>
